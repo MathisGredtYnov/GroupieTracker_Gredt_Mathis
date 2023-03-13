@@ -1,97 +1,22 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url('/ASSETS/fonts/Roboto-Medium.ttf');
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Roboto';
-}
-
-.background {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: #798086;
-}
-
-
-/* début header */
-.header {
-    background-color: #312e2b;
-    color: #ffffff;
-    padding: 10px;
-    height: 75px;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    
-}
-
-.logo img {
-    padding-right: 10px;
-    max-width: 100%;
-    max-height: 200%;
-    object-fit: cover;
-    display: block;
-}
-
-.burger, .close {
-    height: 40px;
-    width: 40px;
-}
-.lien {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.menu_button, .menu_button + label  {
-    display: none;
-}
-li {
-    padding: 2px 20px;
-    display: inline;
-    font-size: 1.5em;
-    color: #ffffff;
-    font-weight: 400;
-}
-
-a {
-    text-decoration: none;
-    color: #ffffff;
-}
-
-/* fin header */
 /* début page */
 
 .WhithOutHeader {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    background-image: url("../ASSETS/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 
 }
 
 .left {
     height: 100%;
     width: 40%;
-    background-color: #798086;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .APIpresentation {
@@ -100,6 +25,7 @@ a {
     background-color: #262421;
     border: 2px solid #ffffff;
     border-radius: 20px;
+    margin-top: 20px;
 }
 
 .APIpresentation h1 {
@@ -122,7 +48,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #798086;
 }
 
 
@@ -132,19 +57,35 @@ a {
     background-color: #262421;
     border: 2px solid #ffffff;
     border-radius: 20px;
+    margin-top: 20px;
+    overflow: hidden;
 }
 
 .APIfeatures h1 {
     text-align: center;
     font-size: 2.5em;
-    font-weight: 700;
     color: #ffffff;
     padding: 10px 0px 10px 0px;
 }
 
+.APIfeatures div {
+    height: 500px;
+    width: 800px;
+    overflow-y: scroll;
+
+}
+
+.APIfeatures div::-webkit-scrollbar {
+    width: 15px; /* width of the entire scrollbar */
+    background-color: #262421; /* color of the scrollbar track */
+  }
+
+.APIfeatures div::-webkit-scrollbar-thumb {
+    background-color: #82818a; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+}
 
 /* début menu responsive */
-
 
 @media screen and (max-width: 991px) {
     /* Header */
@@ -194,5 +135,7 @@ a {
     .menu_button:checked ~ .menu {
         display: block;
     }
+
+
     /* fin menu responsive */
 }
