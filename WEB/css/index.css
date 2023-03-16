@@ -8,7 +8,14 @@
     background-image: url("../ASSETS/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    
+}
 
+.InfoAPI {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .left {
@@ -26,6 +33,7 @@
     border: 2px solid #ffffff;
     border-radius: 20px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .APIpresentation h1 {
@@ -39,11 +47,11 @@
     text-align: center;
     font-size: 1.5em;
     color: #ffffff;
+    padding: 10px 20px 10px 20px;
 }
 
 
 .right {
-    height: 100%;
     width: 60%;
     display: flex;
     align-items: center;
@@ -62,10 +70,16 @@
 }
 
 .APIfeatures h1 {
+    position: sticky;
     text-align: center;
     font-size: 2.5em;
     color: #ffffff;
     padding: 10px 0px 10px 0px;
+}
+
+.texte {
+    padding: 10px 10px 10px 40px;
+    color: white;
 }
 
 .APIfeatures div {
@@ -75,67 +89,12 @@
 
 }
 
-.APIfeatures div::-webkit-scrollbar {
+.APIfeatures .texte::-webkit-scrollbar {
     width: 15px; /* width of the entire scrollbar */
     background-color: #262421; /* color of the scrollbar track */
   }
 
-.APIfeatures div::-webkit-scrollbar-thumb {
+.APIfeatures .texte::-webkit-scrollbar-thumb {
     background-color: #82818a; /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
-}
-
-/* début menu responsive */
-
-@media screen and (max-width: 991px) {
-    /* Header */
-    .menu_button, .menu_button + label  {
-        display: block;
-    }
-    .menu_button + label {
-        cursor: pointer;
-    }
-    .menu_button + label .close {
-        display: none;
-    }
-    .menu_button + label .burger {
-        display: block;
-    }
-    .menu_button:checked + label .close {
-        display: block;
-    }
-    .menu_button:checked + label .burger {
-        display: none;
-    }
-    .menu {
-        background-color: #312e2b;
-        position: absolute;
-        top: 75px;
-        right: 0px;
-        border-bottom-left-radius: 10px;
-        padding: 0px 0px 10px 10px;
-        display: none;
-    }
-    .menu_button {
-        opacity: 0;
-    }
-    ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-    }
-    li {
-        padding: 10px;
-        font-size: 1.5em;
-        text-align: right;
-        border-top: 1px solid #ffffff;
-    }
-    .menu_button:checked ~ .menu {
-        display: block;
-    }
-
-
-    /* fin menu responsive */
 }

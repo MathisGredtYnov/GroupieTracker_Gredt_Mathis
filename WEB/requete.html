@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/requete.css">
     <title>Page de Requête</title>
 </head>
-<body>
+<body onload="submitForm()">
     <div class = "background">
         <div class="scroll_container">
             <div class="first_section scroll_section">
@@ -26,13 +27,91 @@
                         <nav class="menu">
                             <ul>
                                 <li><a href="/requete">REQUETE</a></li>
-                                <li><a href="/documentation">DOCUMENTATION</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
         </div>
+        <div class = "WithOutHeader">
+            <div class="first_content">
+                <form class="search_bar">
+                    <input type="text" autofocus class="search_input" name="search" placeholder="Recherchez un pseudo, un titre...">
+                    <div class="search_icons">
+                        <img src="ASSETS/rod.svg" alt="rod" class="rod">
+                        <button type="submit" class="search_button">
+                            <img src="ASSETS/search.svg" alt="search" class="search_button_icon">
+                        </button>
+                    </div>
+                </form>
+                <form method="post" id="title">
+
+                <label for="title">Choose a Title:</label>
+                <select name="title" id="title" >
+                    <option name="title">Choisissez un titre</option>
+                    <option value="GM">GM</option>
+                    <option id="title"value="WGM">WGM</option>
+                    <option value="IM">IM</option>
+                    <option value="WIM">WIM</option>
+                    <option value="FM">FM</option>
+                    <option value="WFM">WFM</option>
+                    <option value="NM">NM</option>
+                    <option value="WNM">WNM</option>
+                    <option value="CM">CM</option>
+                    <option value="WCM">WCM</option>
+                </select>
+                <input type="submit" id="title" type="hidden" value="Submit">
+            </form>
+            </div>
+            <div class = "second_content">
+            {{if eq .Entree "WIM"}}
+            
+            {{range $v := .Data}}
+            <div class = "card">
+                <div class = "up">
+                    <img src = {{$v.Avatar}} alt = "Avatar">
+                </div>
+                <div class = "down">
+                    <div class = "info">
+                        <h1 id="username">{{$v.Username}}</h1>
+                        <h2 id = "ID">ID du joueur: {{$v.PlayerID}}</h2>
+                        <p id = "followers">Nombre de followers: {{$v.Followers}}</p>
+                        <h2 id = "league">League: {{$v.League}}</h2>
+                    </div>
+                    <div class = "button">
+                        <button class = "MoreInfo">Plus d'informations</button>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+            {{else}}
+                {{$v:=.Data}}
+                <div class = "card">
+                    <div class = "up">
+                        <img src = {{$v.Avatar}} alt = "Avatar">
+                    </div>
+                    <div class = "down">
+                        <div class = "info">
+                            <h1 id="username">{{$v.Username}}</h1>
+                            <h2 id = "ID">ID du joueur: {{$v.PlayerID}}</h2>
+                            <p id = "followers">Nombre de followers: {{$v.Followers}}</p>
+                            <h2 id = "league">League: {{$v.League}}</h2>
+                        </div>
+                        <div class = "button">
+                            <button class = "MoreInfo">Plus d'informations</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+            
+
+        </div>
     </div>
+    <script>
+        function submitForm() {
+          document.getElementById("title").submit();
+        }
+    </script>
 </body>
 </html>
