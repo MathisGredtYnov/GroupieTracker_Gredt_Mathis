@@ -2,7 +2,6 @@
 
 body{
     height: 100vh;
-    width: 100vw;
 }
 
 .WithOutHeader {
@@ -69,8 +68,7 @@ input:focus, .search_input:focus {
 }
 
 .second_content {
-    height: 85%;
-    width: 100%;
+    height: 75%;
     display: flex;
     flex-wrap: wrap;
     
@@ -128,11 +126,12 @@ input:focus, .search_input:focus {
     border-radius: 10px;
 }
 
-button{
+.MoreInfo {
+    color: white;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background-color: blue;
+    background-color: #23232e;
 }
 
 #username {
@@ -159,7 +158,7 @@ button{
     margin-bottom: 5px;
 }
 
-#league {
+#verified {
     font-size: 0.8em;
     color: #fff;
     font-weight: 400;

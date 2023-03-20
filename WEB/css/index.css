@@ -27,6 +27,8 @@
 }
 
 .APIpresentation {
+    padding: 10px 10px 10px 40px;
+    color: white;
     height: 700px;
     width: 500px;
     background-color: #262421;
@@ -36,9 +38,13 @@
     overflow: hidden;
 }
 
+.APIpresentation ul {
+    padding-top: 30px;
+}
+
 .APIpresentation h1 {
     text-align: center;
-    font-size: 2.5em;
+    font-size: auto;
     color: #ffffff;
     padding: 10px 0px 10px 0px;
 }
@@ -80,11 +86,11 @@
 .texte {
     padding: 10px 10px 10px 40px;
     color: white;
+    overflow: hidden;
 }
 
 .APIfeatures div {
     height: 500px;
-    width: 800px;
     overflow-y: scroll;
 
 }
@@ -97,4 +103,22 @@
 .APIfeatures .texte::-webkit-scrollbar-thumb {
     background-color: #82818a; /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+@media screen and (max-width: 1335px) {
+    .InfoAPI {
+        flex-direction: column;
+        align-items: center;
+    }
+        
+}
+
+@media screen and (max-width: 635px) {
+    .left {
+        width: 70%;
+    }
+
+    .APIfeatures h1 {
+        font-size: 1.3em;
+    }
 }

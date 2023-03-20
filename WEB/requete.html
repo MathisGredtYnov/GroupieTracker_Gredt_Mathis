@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/requete.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>Page de Requête</title>
 </head>
 <body onload="submitForm()">
@@ -34,9 +35,10 @@
             </div>
         </div>
         <div class = "WithOutHeader">
+            
             <div class="first_content">
                 <form class="search_bar">
-                    <input type="text" autofocus class="search_input" name="search" placeholder="Recherchez un pseudo, un titre...">
+                    <input type="text" autofocus class="search_input" name="search" placeholder="Recherchez un pseudo">
                     <div class="search_icons">
                         <img src="ASSETS/rod.svg" alt="rod" class="rod">
                         <button type="submit" class="search_button">
@@ -44,48 +46,11 @@
                         </button>
                     </div>
                 </form>
-                <form method="post" id="title">
-
-                <label for="title">Choose a Title:</label>
-                <select name="title" id="title" >
-                    <option name="title">Choisissez un titre</option>
-                    <option value="GM">GM</option>
-                    <option id="title"value="WGM">WGM</option>
-                    <option value="IM">IM</option>
-                    <option value="WIM">WIM</option>
-                    <option value="FM">FM</option>
-                    <option value="WFM">WFM</option>
-                    <option value="NM">NM</option>
-                    <option value="WNM">WNM</option>
-                    <option value="CM">CM</option>
-                    <option value="WCM">WCM</option>
-                </select>
-                <input type="submit" id="title" type="hidden" value="Submit">
-            </form>
             </div>
-            <div class = "second_content">
-            {{if eq .Entree "WIM"}}
             
-            {{range $v := .Data}}
-            <div class = "card">
-                <div class = "up">
-                    <img src = {{$v.Avatar}} alt = "Avatar">
-                </div>
-                <div class = "down">
-                    <div class = "info">
-                        <h1 id="username">{{$v.Username}}</h1>
-                        <h2 id = "ID">ID du joueur: {{$v.PlayerID}}</h2>
-                        <p id = "followers">Nombre de followers: {{$v.Followers}}</p>
-                        <h2 id = "league">League: {{$v.League}}</h2>
-                    </div>
-                    <div class = "button">
-                        <button class = "MoreInfo">Plus d'informations</button>
-                    </div>
-                </div>
-            </div>
-            {{end}}
-            {{else}}
-                {{$v:=.Data}}
+            <div class = "second_content">
+                {{if eq .Entree "WIM"}}
+                {{range $v := .Data}}
                 <div class = "card">
                     <div class = "up">
                         <img src = {{$v.Avatar}} alt = "Avatar">
@@ -95,7 +60,26 @@
                             <h1 id="username">{{$v.Username}}</h1>
                             <h2 id = "ID">ID du joueur: {{$v.PlayerID}}</h2>
                             <p id = "followers">Nombre de followers: {{$v.Followers}}</p>
-                            <h2 id = "league">League: {{$v.League}}</h2>
+                            <h2 id = "verified">Streamer: {{$v.IsStreamer}}</h2>
+                        </div>
+                        <div class = "button">
+                            <button class = "MoreInfo">Plus d'informations</button>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+                {{else}}
+                {{$v := .Data}}
+                <div class = "card">
+                    <div class = "up">
+                        <img src = {{$v.Avatar}} alt = "Avatar">
+                    </div>
+                    <div class = "down">
+                        <div class = "info">
+                            <h1 id="username">{{$v.Username}}</h1>
+                            <h2 id = "ID">ID du joueur: {{$v.PlayerID}}</h2>
+                            <p id = "followers">Nombre de followers: {{$v.Followers}}</p>
+                            <h2 id = "verified">Streamer: {{$v.IsStreamer}}</h2>
                         </div>
                         <div class = "button">
                             <button class = "MoreInfo">Plus d'informations</button>
@@ -104,8 +88,6 @@
                 </div>
             </div>
             {{end}}
-            
-
         </div>
     </div>
     <script>

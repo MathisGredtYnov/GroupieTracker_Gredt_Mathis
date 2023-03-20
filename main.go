@@ -86,6 +86,7 @@ func (p *PlayerData) RechercheTitle(title string) *PlayerTitle {
 	if err != nil {
 		panic(err.Error())
 	}
+
 	return &playerInfo
 }
 
